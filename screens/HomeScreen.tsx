@@ -3,13 +3,18 @@ import { StyleSheet } from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
+import StudentCard from '../components/StudentCard'
 
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+import students from '../assets/data/Students'
+const s = students[0]
+
+export default function HomeScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <StudentCard student={{
+        name: 'Martina Lopez',
+        image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png'
+      }}/>
     </View>
   );
 }
@@ -17,6 +22,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },
