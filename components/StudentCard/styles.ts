@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   photo: {
     width: "100%",
-    height: 200,
+    aspectRatio: 2 / 1,
     borderRadius: 25
   },
   text: {

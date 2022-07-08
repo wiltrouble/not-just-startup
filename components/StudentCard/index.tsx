@@ -4,7 +4,7 @@ import styles from "./styles";
 
 const index = (props) => {
   const [studentStatus, setStudentStatus] = useState(false);
-  const { id, image, name } = props.student;
+  const { id, imageUri, name } = props.student;
 
   const toggleSwtich = () => {
     console.log("pressed");
@@ -16,7 +16,7 @@ const index = (props) => {
       <View>
         <Image
           source={{
-            uri: image,
+            uri: imageUri,
           }}
           style={styles.photo}
         />

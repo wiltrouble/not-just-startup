@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { FlatList, ScrollView, StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
@@ -10,12 +10,16 @@ const s = students[0]
 
 export default function HomeScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   return (
+
+    <ScrollView>
+
     <View style={styles.container}>
-      <StudentCard student={{
-        name: 'Martina Lopez',
-        image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png'
-      }}/>
+      <FlatList 
+        data={students}
+        renderItem={({item}) => <StudentCard student={item} /> }/>
+      
     </View>
+        </ScrollView>
   );
 }
 
@@ -25,14 +29,5 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
+  }
 });
