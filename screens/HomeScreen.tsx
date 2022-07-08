@@ -11,15 +11,13 @@ const s = students[0]
 export default function HomeScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   return (
 
-    <ScrollView>
-
     <View style={styles.container}>
       <FlatList 
+        showsVerticalScrollIndicator={false}
         data={students}
         renderItem={({item}) => <StudentCard student={item} /> }/>
-      
     </View>
-        </ScrollView>
+
   );
 }
 
