@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import styles from "./styles";
 
 const index = (props) => {
-  const [estudentStatus, setEstudentStatus] = useState(false);
-  const {id, image, name} = props.student
+  const [studentStatus, setStudentStatus] = useState(false);
+  const { id, image, name } = props.student;
 
   const toggleSwtich = () => {
-    
-    setEstudentStatus(!estudentStatus);
+    console.log("pressed");
+
+    setStudentStatus(!studentStatus);
   };
   return (
     <View style={styles.container}>
@@ -19,16 +20,16 @@ const index = (props) => {
           }}
           style={styles.photo}
         />
-        <Pressable>
+        <View style={styles.toggleContainer}>
           <Switch
-          style={styles.toggle}
+            style={styles.toggle}
             trackColor={{ false: "#767577", true: "#81b0ff" }}
-            thumbColor={estudentStatus ? "#f5dd4b" : "#f4f3f4"}
+            thumbColor={studentStatus ? "#f5dd4b" : "#f4f3f4"}
             ios_backgroundColor="#3e3e3e"
             onValueChange={toggleSwtich}
-            value={estudentStatus}
+            value={studentStatus}
           />
-        </Pressable>
+        </View>
       </View>
       <Text style={styles.text}>{name}</Text>
     </View>
